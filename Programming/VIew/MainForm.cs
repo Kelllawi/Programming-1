@@ -82,6 +82,22 @@ namespace Programming.View
             }
             return movies;
         }
+        
+        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        {
+            int maxWidthIndex = 0;
+            double maxValue = rectangles[0].Width;
+            for (int i = 0; i < CountElements; i++)
+            {
+                if (rectangles[i].Width > maxValue)
+                {
+                    maxValue = rectangles[i].Width;
+                    maxWidthIndex = i;
+                }
+            }
+
+            return maxWidthIndex;
+        }
 
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -156,6 +172,22 @@ namespace Programming.View
                     break;
             }
         }
+        
+        private int FindMovieWithMaxRating(Movie[] Movies)
+        {
+            int maxRatingIndex = 0;
+            double maxValue = Movies[0].Rating;
+            for (int i = 0; i < CountElements; i++)
+            {
+                if (Movies[i].Rating > maxValue)
+                {
+                    maxValue = Movies[i].Rating;
+                    maxRatingIndex = i;
+                }
+            }
+
+            return maxRatingIndex;
+        }
 
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -205,22 +237,7 @@ namespace Programming.View
             string colorRectangleValue = ColorRectangleTextBox.Text;
             _currentRectangle.Color = colorRectangleValue;
         }
-
-        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
-        {
-            int maxWidthIndex = 0;
-            double maxValue = rectangles[0].Width;
-            for (int i = 0; i < CountElements; i++)
-            {
-                if (rectangles[i].Width > maxValue)
-                {
-                    maxValue = rectangles[i].Width;
-                    maxWidthIndex = i;
-                }
-            }
-
-            return maxWidthIndex;
-        }
+        
 
         private void FindRectangleButton_Click(object sender, EventArgs e)
         {
@@ -299,22 +316,6 @@ namespace Programming.View
                 return;
             }
             RatingMovieTextBox.BackColor = _correctColor;
-        }
-
-        private int FindMovieWithMaxRating(Movie[] Movies)
-        {
-            int maxRatingIndex = 0;
-            double maxValue = Movies[0].Rating;
-            for (int i = 0; i < CountElements; i++)
-            {
-                if (Movies[i].Rating > maxValue)
-                {
-                    maxValue = Movies[i].Rating;
-                    maxRatingIndex = i;
-                }
-            }
-
-            return maxRatingIndex;
         }
 
         private void FindMovieButton_Click(object sender, EventArgs e)
