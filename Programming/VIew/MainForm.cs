@@ -98,6 +98,22 @@ namespace Programming.View
 
             return maxWidthIndex;
         }
+        
+        private int FindMovieWithMaxRating(Movie[] Movies)
+        {
+            int maxRatingIndex = 0;
+            double maxValue = Movies[0].Rating;
+            for (int i = 0; i < CountElements; i++)
+            {
+                if (Movies[i].Rating > maxValue)
+                {
+                    maxValue = Movies[i].Rating;
+                    maxRatingIndex = i;
+                }
+            }
+
+            return maxRatingIndex;
+        }
 
         private void EnumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -173,21 +189,6 @@ namespace Programming.View
             }
         }
         
-        private int FindMovieWithMaxRating(Movie[] Movies)
-        {
-            int maxRatingIndex = 0;
-            double maxValue = Movies[0].Rating;
-            for (int i = 0; i < CountElements; i++)
-            {
-                if (Movies[i].Rating > maxValue)
-                {
-                    maxValue = Movies[i].Rating;
-                    maxRatingIndex = i;
-                }
-            }
-
-            return maxRatingIndex;
-        }
 
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -317,6 +318,7 @@ namespace Programming.View
             }
             RatingMovieTextBox.BackColor = CorrectColor;
         }
+        
 
         private void FindMovieButton_Click(object sender, EventArgs e)
         {
