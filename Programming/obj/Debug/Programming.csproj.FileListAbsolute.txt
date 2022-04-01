@@ -1,0 +1,10 @@
+C:\Users\danil\RiderProjects\Programming\src\Programming\bin\Debug\Programming.exe.config
+C:\Users\danil\RiderProjects\Programming\src\Programming\bin\Debug\Programming.exe
+C:\Users\danil\RiderProjects\Programming\src\Programming\bin\Debug\Programming.pdb
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.csproj.AssemblyReference.cache
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.Properties.Resources.resources
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.View.MainForm.resources
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.csproj.GenerateResource.cache
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.csproj.CoreCompileInputs.cache
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.exe
+C:\Users\danil\RiderProjects\Programming\src\Programming\obj\Debug\Programming.pdb
