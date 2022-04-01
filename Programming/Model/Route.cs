@@ -1,5 +1,6 @@
 ﻿namespace Programming.Model
 {
+    using System;
     public class Route
     {
         private int _flightTimeMinutes;
@@ -23,12 +24,15 @@
 
         public int FlightTimeMinutes
         {
-            get { return _flightTimeMinutes; }
+            get
+            {
+                return _flightTimeMinutes;
+            }
             set
             {
                 if (value <= 0)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the FlightTImeMinutes field must be greater than 0");
                 }
 

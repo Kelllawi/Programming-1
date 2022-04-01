@@ -8,7 +8,7 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        const int CountElements = 5;
+        private const int CountElements = 5;
         
         private Color ErrorColor = Color.Pink;
         
@@ -22,7 +22,7 @@ namespace Programming.View
         
         private Movie _currentMovie;
         
-        private Random _randomValues;
+        private Random _random = new Random();
 
         public MainForm()
         {
@@ -33,7 +33,7 @@ namespace Programming.View
                 EnumListBox.Items.Add(value);
             }
             
-            _randomValues = new Random();
+            _random = new Random();
 
             EnumListBox.SelectedIndex = 0;
 
@@ -43,10 +43,8 @@ namespace Programming.View
                 SeasonNamesComboBox.Items.Add(value);
             }
             _rectangles = CreateRectangles();
-            RectangleListBox.SelectedIndex = 0;
-            
+
             _movies = CreateMovies();
-            MovieListBox.SelectedIndex = 0;
         }
 
         private Rectangle[] CreateRectangles()
@@ -56,12 +54,13 @@ namespace Programming.View
             for (int i = 0; i < CountElements; i++)
             {
                 _currentRectangle = new Rectangle();
-                _currentRectangle.Width = _randomValues.Next(1, 1001) / 10.0;
-                _currentRectangle.Length = _randomValues.Next(1, 1001) / 10.0;
-                _currentRectangle.Color = colors.GetValue(_randomValues.Next(0, colors.Length)).ToString();
+                _currentRectangle.Width = _random.Next(1, 1001) / 10.0;
+                _currentRectangle.Length = _random.Next(1, 1001) / 10.0;
+                _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
                 rectangles[i] = _currentRectangle;
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
+            RectangleListBox.SelectedIndex = 0;
             return rectangles;
         }
         
@@ -72,14 +71,15 @@ namespace Programming.View
             for (int i = 0; i < CountElements; i++)
             {
                 _currentMovie = new Movie();
-                _currentMovie.Rating = _randomValues.Next(101) / 10.0;
-                _currentMovie.ReleaseYear = _randomValues.Next(1900, 2023);
-                _currentMovie.Genre = genres.GetValue(_randomValues.Next(0, genres.Length)).ToString();
+                _currentMovie.Rating = _random.Next(101) / 10.0;
+                _currentMovie.ReleaseYear = _random.Next(1900, 2023);
+                _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Name = $"Movie {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
-                _currentMovie.DurationMinutes = _randomValues.Next(151);
+                _currentMovie.DurationMinutes = _random.Next(151);
                 movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
+            MovieListBox.SelectedIndex = 0;
             return movies;
         }
         
@@ -189,7 +189,6 @@ namespace Programming.View
             }
         }
         
-
         private void RectangleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndexRectangle = RectangleListBox.SelectedIndex;
@@ -239,7 +238,6 @@ namespace Programming.View
             _currentRectangle.Color = colorRectangleValue;
         }
         
-
         private void FindRectangleButton_Click(object sender, EventArgs e)
         {
             int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
@@ -318,7 +316,6 @@ namespace Programming.View
             }
             RatingMovieTextBox.BackColor = CorrectColor;
         }
-        
 
         private void FindMovieButton_Click(object sender, EventArgs e)
         {

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Programming.Model
+﻿namespace Programming.Model
 {
+    using System;
+    
     public class Subject
     {
         private int _mark;
@@ -21,12 +21,15 @@ namespace Programming.Model
         
         public int Mark
         {
-            get { return _mark; }
+            get
+            {
+                return _mark;
+            }
             set
             {
                 if (value < 1 || value > 5)
                 {
-                    throw new System.ArgumentException(
+                    throw new ArgumentException(
                         "the value of the Mark field should be between 1 (unsatisfactory) and 5 (excellent)");
                 }
 
