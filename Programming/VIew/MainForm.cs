@@ -9,6 +9,7 @@ namespace Programming.View
     public partial class MainForm : Form
     {
         private const int CountElements = 5;
+        
         private Color ErrorColor = Color.Pink;
         
         private Color CorrectColor = Color.White;
