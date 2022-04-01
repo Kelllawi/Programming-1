@@ -49,7 +49,7 @@ namespace Programming.View
 
         private void CreateRectangles()
         {
-            Rectangle[] rectangles = new Rectangle[CountElements];
+            _rectangles = new Rectangle[CountElements];
             var colors = Enum.GetValues(typeof(Colors));
             for (int i = 0; i < CountElements; i++)
             {
@@ -57,7 +57,7 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 1001) / 10.0;
                 _currentRectangle.Length = _random.Next(1, 1001) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
-                rectangles[i] = _currentRectangle;
+                _rectangles[i] = _currentRectangle;
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
             RectangleListBox.SelectedIndex = 0;
@@ -65,7 +65,7 @@ namespace Programming.View
         
         private void CreateMovies()
         {
-            Movie[] movies = new Movie[CountElements];
+            _movies = new Movie[CountElements];
             var genres = Enum.GetValues(typeof(Genre));
             for (int i = 0; i < CountElements; i++)
             {
@@ -75,7 +75,7 @@ namespace Programming.View
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Name = $"Movie {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _currentMovie.DurationMinutes = _random.Next(151);
-                movies[i] = _currentMovie;
+                _movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
             MovieListBox.SelectedIndex = 0;
