@@ -42,13 +42,12 @@ namespace Programming.View
             foreach (Season value in seasonValues)
             {
                 SeasonNamesComboBox.Items.Add(value);
-            }
-            _rectangles = CreateRectangles();
-
-            _movies = CreateMovies();
+            } 
+            CreateRectangles();
+            CreateMovies();
         }
 
-        private Rectangle[] CreateRectangles()
+        private void CreateRectangles()
         {
             Rectangle[] rectangles = new Rectangle[CountElements];
             var colors = Enum.GetValues(typeof(Colors));
@@ -62,10 +61,9 @@ namespace Programming.View
                 RectangleListBox.Items.Add($"Rectangle {i + 1}");
             }
             RectangleListBox.SelectedIndex = 0;
-            return rectangles;
         }
         
-        private Movie[] CreateMovies()
+        private void CreateMovies()
         {
             Movie[] movies = new Movie[CountElements];
             var genres = Enum.GetValues(typeof(Genre));
@@ -81,7 +79,6 @@ namespace Programming.View
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
             MovieListBox.SelectedIndex = 0;
-            return movies;
         }
         
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)

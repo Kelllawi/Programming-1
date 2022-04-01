@@ -49,7 +49,7 @@
             }
             set
             {
-                if (0 > value || value > 60)
+                if (0 > value || value > 59)
                 {
                     throw new ArgumentOutOfRangeException(
                         "the value of the Minutes field must be in the range from 0 to 60");
