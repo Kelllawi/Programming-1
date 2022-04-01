@@ -10,9 +10,9 @@ namespace Programming.View
     {
         const int CountElements = 5;
         
-        private Color _errorColor = Color.Pink;
+        private Color ErrorColor = Color.Pink;
         
-        private Color _correctColor = Color.White;
+        private Color CorrectColor = Color.White;
         
         private Rectangle[] _rectangles;
         
@@ -208,11 +208,11 @@ namespace Programming.View
             }
             catch
             {
-                LengthRectangleTextBox.BackColor = _errorColor;
+                LengthRectangleTextBox.BackColor = ErrorColor;
                 return;
             }
 
-            LengthRectangleTextBox.BackColor = _correctColor;
+            LengthRectangleTextBox.BackColor = CorrectColor;
         }
 
         private void WidthRectangleTextBox_TextChanged(object sender, EventArgs e)
@@ -225,11 +225,11 @@ namespace Programming.View
             }
             catch
             {
-                WidthRectangleTextBox.BackColor = _errorColor;
+                WidthRectangleTextBox.BackColor = ErrorColor;
                 return;
             }
 
-            WidthRectangleTextBox.BackColor = _correctColor;
+            WidthRectangleTextBox.BackColor = CorrectColor;
         }
 
         private void ColorRectangleTextBox_TextChanged(object sender, EventArgs e)
@@ -278,11 +278,11 @@ namespace Programming.View
             }
             catch
             {
-                YearReleaseMovieTextBox.BackColor = _errorColor;
+                YearReleaseMovieTextBox.BackColor = ErrorColor;
                 return;
             }
 
-            YearReleaseMovieTextBox.BackColor = _correctColor;
+            YearReleaseMovieTextBox.BackColor = CorrectColor;
         }
 
         private void DurationMinutesMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -295,11 +295,11 @@ namespace Programming.View
             }
             catch
             {
-                DurationMinutesMovieTextBox.BackColor = _errorColor;
+                DurationMinutesMovieTextBox.BackColor = ErrorColor;
                 return;
             }
 
-            DurationMinutesMovieTextBox.BackColor = _correctColor;
+            DurationMinutesMovieTextBox.BackColor = CorrectColor;
         }
 
         private void RatingMovieTextBox_TextChanged(object sender, EventArgs e)
@@ -312,10 +312,10 @@ namespace Programming.View
             }
             catch
             {
-                RatingMovieTextBox.BackColor = _errorColor;
+                RatingMovieTextBox.BackColor = ErrorColor;
                 return;
             }
-            RatingMovieTextBox.BackColor = _correctColor;
+            RatingMovieTextBox.BackColor = CorrectColor;
         }
 
         private void FindMovieButton_Click(object sender, EventArgs e)
