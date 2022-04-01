@@ -10,7 +10,7 @@ namespace Programming.View
     {
         const int CountElements = 5;
         
-        private Color __errorColor = Color.Pink;
+        private Color ___errorColor = Color.Pink;
         
         private Color _correctColor = Color.White;
         
