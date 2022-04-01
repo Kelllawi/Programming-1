@@ -11,8 +11,6 @@ namespace Programming.View
         private const int CountElements = 5;
         
         
-        
-        
         private Color ErrorColor = Color.Pink;
         
         private Color CorrectColor = Color.White;
