@@ -8,8 +8,7 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        private const int CountElements = 5;
-        
+        private const int ElementsCount = 5;
         
         private Color ErrorColor = Color.Pink;
         
@@ -49,35 +48,38 @@ namespace Programming.View
 
         private void CreateRectangles()
         {
-            _rectangles = new Rectangle[CountElements];
+            _rectangles = new Rectangle[ElementsCount];
             var colors = Enum.GetValues(typeof(Colors));
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 _currentRectangle = new Rectangle();
                 _currentRectangle.Width = _random.Next(1, 1001) / 10.0;
                 _currentRectangle.Length = _random.Next(1, 1001) / 10.0;
                 _currentRectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+                _currentRectangle.Center = new Point2D(_random.Next(1, 100), _random.Next(1, 100));
                 _rectangles[i] = _currentRectangle;
-                RectangleListBox.Items.Add($"Rectangle {i + 1}");
+                RectangleListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
             }
+            
             RectangleListBox.SelectedIndex = 0;
         }
         
         private void CreateMovies()
         {
-            _movies = new Movie[CountElements];
+            _movies = new Movie[ElementsCount];
             var genres = Enum.GetValues(typeof(Genre));
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 _currentMovie = new Movie();
                 _currentMovie.Rating = _random.Next(101) / 10.0;
-                _currentMovie.ReleaseYear = _random.Next(1900, 2023);
+                _currentMovie.ReleaseYear = _random.Next(1900, DateTime.Now.Year);
                 _currentMovie.Genre = genres.GetValue(_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Name = $"Movie {_currentMovie.Genre} {_currentMovie.ReleaseYear}";
                 _currentMovie.DurationMinutes = _random.Next(151);
                 _movies[i] = _currentMovie;
                 MovieListBox.Items.Add($"Movie {i + 1}");
             }
+            
             MovieListBox.SelectedIndex = 0;
         }
         
@@ -85,7 +87,7 @@ namespace Programming.View
         {
             int maxWidthIndex = 0;
             double maxValue = rectangles[0].Width;
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 if (rectangles[i].Width > maxValue)
                 {
@@ -101,7 +103,7 @@ namespace Programming.View
         {
             int maxRatingIndex = 0;
             double maxValue = Movies[0].Rating;
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 if (Movies[i].Rating > maxValue)
                 {
@@ -194,6 +196,9 @@ namespace Programming.View
             LengthRectangleTextBox.Text = _currentRectangle.Length.ToString();
             WidthRectangleTextBox.Text = _currentRectangle.Width.ToString();
             ColorRectangleTextBox.Text = _currentRectangle.Color;
+            XRectangleTextBox.Text = _currentRectangle.Center.X.ToString();
+            YRectangleTextBox.Text = _currentRectangle.Center.Y.ToString();
+            IdRectangleTextBox.Text = _currentRectangle.Id.ToString();
         }
 
         private void LengthRectangleTextBox_TextChanged(object sender, EventArgs e)
